@@ -30,9 +30,8 @@ To solve the sample-inefficiency problem of Reinforcement Learning from Human Fe
 
 | Version | Major Changes |
 |----------|---------------|
-| v1.0 | Human reward interface |
-| v1.1 | Automated reward pipeline |
-| v1.2 | Improved reward architecture, human reward interface removed |
+| v1.1 | Human Reward interface, PyBullet Environment, Main model |
+| v1.2 | Automated reward architecture, human reward interface removed |
 | v1.3 | Upgraded manipulator from 2 DOF → 3 DOF |
 | v1.4 | Workspace expansion |
 
