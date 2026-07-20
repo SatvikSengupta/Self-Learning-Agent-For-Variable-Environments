@@ -1,4 +1,4 @@
-# Project Sentience: Vision-Only RLHF Robotic Arm
+# S.L.A.V.E: **S**elf **L**earning **A**gent for **V**ariable **E**nvironments
 
 ![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
@@ -26,12 +26,39 @@ To solve the sample-inefficiency problem of Reinforcement Learning from Human Fe
 *   **Inter-Process Communication (IPC):** Human feedback is sparse. To prevent blocking the 240Hz physics thread, the Tkinter UI runs on a separate process and broadcasts `+1`, `0`, or `-1` reward signals via a local UDP socket (Port 5005) directly to the environment.
 
 
-### Version History
+## Version History
 
 | Version | Major Changes |
 |----------|---------------|
 | v1.1 | Human Reward interface, PyBullet Environment, Main model |
 | v1.2 | Automated reward architecture, human reward interface removed |
-| v1.3 | Upgraded manipulator from 2 DOF → 3 DOF |
+| v1.3 | Upgraded manipulator from 3 DOF → 4 DOF |
 | v1.4 | Workspace expansion |
 
+## Usage
+
+### Install Required Dependencies:
+``` bash
+pip install torch pybullet gymnasium opencv-python numpy
+```
+##### Note:
+In case PyBullet does not install, create a virtual environment (venv) with:
+``` bash
+pythom -m venv venv
+```
+
+### Run Master Script (v1.2 onwards):
+``` bash
+python master.py
+```
+
+## Project Structure:
+* **master.py:** Subprocess manager that boots and synchronizes the training loop and UI.
+* **arm.urdf:** The XML-based kinematic blueprint defining the physical masses, joints, and camera anchor of the arm.
+* **env.py:** The Gymnasium environment handling PyBullet physics, camera rendering, and the UDP socket listener.
+* **model.py:** The PyTorch architecture containing the CNN Vision Encoder and the A2C neural network heads.
+* **train.py:** The reinforcement learning loop executing the Forward Pass, Action Sampling, and Backpropagation.
+* **feedback_ui.py:** The standalone Tkinter application for broadcasting RLHF signals. (currently not in use)
+
+## License
+Under Apache 2.0, see **LICENSE** for more
