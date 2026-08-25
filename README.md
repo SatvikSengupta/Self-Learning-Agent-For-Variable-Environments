@@ -9,6 +9,8 @@ An open-source exploration into pure, vision-based Reinforcement Learning. This 
 
 The agent "just sees, experiences, and learns."
 
+# Creator: Satvik Sengupta (https://github.com/SatvikSengupta)
+
 ## Architecture Overview
 
 To solve the sample-inefficiency problem of Reinforcement Learning from Human Feedback (RLHF) on a vision-based model, this project utilizes a two-phase training pipeline bridging a custom PyTorch brain with a PyBullet physics simulation.
